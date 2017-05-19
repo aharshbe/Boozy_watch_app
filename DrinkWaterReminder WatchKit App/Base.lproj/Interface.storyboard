@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch42" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="12029"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="DrinkWaterReminder_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <button width="120" alignment="center" title="View Summary " id="IqO-aI-Uku">
+                            <color key="backgroundColor" red="1" green="0.25533974189999997" blue="0.33707876240000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="summaryButton" destination="AgC-eL-Hgc" id="Jgb-3D-jdw"/>
+                            </connections>
+                        </button>
+                        <separator alignment="left" id="9W7-2b-qRv">
+                            <color key="color" red="1" green="0.25533974189999997" blue="0.33707876240000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </separator>
+                        <imageView width="45" height="48" alignment="left" image="Drink" id="qM6-NZ-pmi">
+                            <color key="tintColor" red="1" green="0.43785649869999999" blue="0.71330893159999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </imageView>
+                        <label width="1" alignment="right" text="You drank:" textAlignment="center" id="38a-sR-4NQ"/>
+                        <label alignment="center" text="0" textAlignment="center" id="IDz-Zl-Avs"/>
+                        <button width="100" height="37" alignment="center" title="+" id="Ih8-ZW-J1X">
+                            <color key="backgroundColor" red="1" green="0.2553397419065323" blue="0.33707876236707734" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="clickingplusdrinks" destination="AgC-eL-Hgc" id="44X-fy-AgT"/>
+                            </connections>
+                        </button>
+                        <separator alignment="left" id="idv-8F-I29">
+                            <color key="color" red="0.94673549107142863" green="0.28621888290000003" blue="0.95261120799999999" alpha="0.33486465669999999" colorSpace="custom" customColorSpace="displayP3"/>
+                        </separator>
+                        <imageView width="46" height="42" alignment="left" image="Water" id="cJu-PZ-OIf"/>
+                        <label width="118" alignment="center" text="Drink H20" textAlignment="center" id="x5J-27-vES"/>
+                        <label alignment="center" text="0" textAlignment="center" id="fGX-ni-Gcn"/>
+                        <button width="107" height="37" alignment="center" title="I had a water" id="oPW-zK-Har">
+                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" red="0.48560634689999999" green="0.6242473503" blue="0.95261120799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="ihadwaterclick" destination="AgC-eL-Hgc" id="zLx-aR-Yar"/>
+                            </connections>
+                        </button>
+                        <button width="65" alignment="center" verticalAlignment="center" title="Reset" id="Iom-GS-VIX">
+                            <gestureRecognizers>
+                                <longPressGestureRecognizer id="hwt-kY-l33">
+                                    <connections>
+                                        <action selector="longpressresetdrinkscount:" destination="AgC-eL-Hgc" id="TmQ-bm-sRi"/>
+                                    </connections>
+                                </longPressGestureRecognizer>
+                            </gestureRecognizers>
+                            <color key="backgroundColor" red="1" green="0.078526610410000003" blue="0.097256707009999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="clickingReset" destination="AgC-eL-Hgc" id="6ea-ax-WDd"/>
+                            </connections>
+                        </button>
+                        <separator alignment="left" id="6yR-0r-iZv">
+                            <color key="color" red="0.48560634689999999" green="0.6242473503" blue="0.95261120799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </separator>
+                    </items>
+                    <connections>
+                        <outlet property="drinkh20title" destination="x5J-27-vES" id="doO-rn-HsG"/>
+                        <outlet property="numberofdrinks" destination="IDz-Zl-Avs" id="gj8-3K-WGg"/>
+                        <outlet property="numberofwaterleft" destination="fGX-ni-Gcn" id="ib2-ZH-hMU"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="207.4871794871795" y="130.76923076923077"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Drink water!" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="DrinkWaterReminder_WatchKit_App" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+    </scenes>
+</document>
